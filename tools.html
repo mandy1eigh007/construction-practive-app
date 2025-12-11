@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tools Review Game – Hand vs Power</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Tools Review Game</h1>
+      <p class="subtitle">
+        Hand tool or power tool? Quick classification practice.
+      </p>
+    </header>
+
+    <section class="status-bar">
+      <div id="question-counter">Question 1</div>
+      <div id="score-display">Score: 0 correct</div>
+    </section>
+
+    <main class="card" id="quiz-card">
+      <div id="question-text" class="question-text"></div>
+      <div id="options-container" class="options-container"></div>
+      <div id="feedback" class="feedback"></div>
+
+      <div class="controls">
+        <button id="next-button" disabled>Next question</button>
+        <button id="restart-button">Restart game</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- IMPORTANT: Tools question bank instead of MC3 -->
+  <script src="toolQuestions.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
