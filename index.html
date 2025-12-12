@@ -2,38 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>MC3 Orientation Review Game</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tool Recognition Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app-container">
+  <div class="app-shell">
     <header class="app-header">
-      <h1>MC3 Orientation Review Game</h1>
-      <p class="subtitle">
-        Apprenticeship, unions, time management, communication, and interview basics.
-      </p>
+      <h1>Tool Recognition Game</h1>
+      <p class="subtitle">Learn to identify tools and read tape measures.</p>
     </header>
 
-    <section class="status-bar">
-      <div id="question-counter">Question 1 of 50</div>
-      <div id="score-display">Score: 0 correct</div>
-    </section>
+    <main>
+      <!-- START SCREEN -->
+      <section id="start-screen" class="card">
+        <h2>Activity Type</h2>
 
-    <main class="card" id="quiz-card">
-      <div id="question-text" class="question-text"></div>
-      <div id="options-container" class="options-container"></div>
-      <div id="feedback" class="feedback"></div>
+        <div class="mode-grid">
+          <button class="mode-button" data-mode="hand">Hand Tools</button>
+          <button class="mode-button" data-mode="power">Power Tools</button>
+          <button class="mode-button active" data-mode="combined">Combined Tools</button>
+          <button class="mode-button" data-mode="tape">Tape Measure</button>
+        </div>
 
-      <div class="controls">
-        <button id="next-button" disabled>Next question</button>
-        <button id="restart-button">Restart game</button>
-      </div>
+        <label class="checkbox-row">
+          <input type="checkbox" id="timedMode" />
+          <span>Timed Mode (15 seconds per question)</span>
+        </label>
+
+        <div class="control-row">
+          <label class="question-count">
+            Number of questions:
+            <select id="questionCount">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="startGameBtn" class="primary-btn">Start Game</button>
+      </section>
+
+      <!-- QUIZ SCREEN -->
+      <section id="quiz-screen" class="card hidden">
+        <div class="quiz-top-bar">
+          <span id="modeLabel"></span>
+          <span id="progressLabel"></span>
+          <span id="timer" class="hidden"></span>
+        </div>
+
+        <div id="questionText" class="question-text"></div>
+        <div id="optionsContainer" class="options-grid"></div>
+        <div id="feedback" class="feedback"></div>
+
+        <div class="quiz-controls">
+          <button id="nextQuestionBtn" class="secondary-btn" disabled>Next</button>
+          <button id="backToMenuBtn" class="link-btn">Back to Menu</button>
+        </div>
+      </section>
+
+      <!-- RESULTS SCREEN -->
+      <section id="results-screen" class="card hidden">
+        <h2>Game Results</h2>
+        <p id="resultsSummary"></p>
+        <button id="playAgainBtn" class="primary-btn">Play Again</button>
+        <button id="resultsBackToMenuBtn" class="link-btn">Back to Menu</button>
+      </section>
     </main>
   </div>
 
-  <script src="questionData.js"></script>
-  <script src="quiz.js"></script>
+  <script src="toolData.js"></script>
+  <script src="toolQuiz.js"></script>
 </body>
 </html>
-
